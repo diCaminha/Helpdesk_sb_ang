@@ -6,15 +6,19 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 public interface TicketService {
 
     Ticket createOrUpdate(Ticket ticket);
 
-    Ticket findById(String id);
+    Optional<Ticket> findById(String id);
 
     void delete(String id);
 
     Page<Ticket> listTicket(int page, int count);
+
+    ChangeStatus createChangeStatus(ChangeStatus changeStatus);
 
     Iterable<ChangeStatus> listChangeStatus(String ticketId);
 
