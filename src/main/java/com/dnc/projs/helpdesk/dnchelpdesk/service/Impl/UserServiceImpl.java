@@ -9,6 +9,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -26,8 +28,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User findById(String id) {
-		return this.userRepository.findById(id).get();
+	public Optional<User> findById(String id) {
+		return Optional.of(this.userRepository.findById(id).get());
 	}
 
 	@Override
